@@ -31,7 +31,7 @@ namespace ServiceLocator.Wave
             
         }
 
-        private void SubscribeToEvents() => EventService.Instance.OnMapSelected.AddListener(LoadWaveDataForMap);
+        private void SubscribeToEvents() => GameService.Instance.eventService.OnMapSelected.AddListener(LoadWaveDataForMap);
 
         private void LoadWaveDataForMap(int mapId)
         {

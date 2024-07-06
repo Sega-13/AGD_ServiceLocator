@@ -25,12 +25,12 @@ namespace ServiceLocator.Map
         }
         
 
-        private void SubscribeToEvents() => EventService.Instance.OnMapSelected.AddListener(LoadMap);
+        private void SubscribeToEvents() => GameService.Instance.eventService.OnMapSelected.AddListener(LoadMap);
 
         private void LoadMap(int mapId)
         {
             currentMapData = mapScriptableObject.MapDatas.Find(mapData => mapData.MapID == mapId);
-            currentGrid = GameService.Instantiate(currentMapData.MapPrefab);
+            currentGrid = Object.Instantiate(currentMapData.MapPrefab);
             currentTileMap = currentGrid.GetComponentInChildren<Tilemap>();
         }
 
