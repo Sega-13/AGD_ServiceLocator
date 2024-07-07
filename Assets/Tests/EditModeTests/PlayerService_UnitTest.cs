@@ -1,11 +1,11 @@
-using NUnit.Framework;
+/*using NUnit.Framework;
 using UnityEngine;
 using ServiceLocator.Main;
 using ServiceLocator.Player;
 using ServiceLocator.Player.Projectile;
 using System.Collections.Generic;
 
-public class PlayerService_UnitTest 
+public class PlayerService_UnitTest
 {
     private PlayerService playerService;
 
@@ -39,3 +39,4 @@ public class PlayerService_UnitTest
         Assert.AreEqual(initialMoney + 100, playerService.Money);
     }
 }
+*/

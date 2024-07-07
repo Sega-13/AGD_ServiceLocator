@@ -1,11 +1,13 @@
+using ServiceLocator.Map;
+using ServiceLocator.Player;
+using ServiceLocator.Sound;
+using ServiceLocator.UI;
+using ServiceLocator.Wave;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using ServiceLocator.Utilities;
 using ServiceLocator.Events;
-using ServiceLocator.Map;
-using ServiceLocator.Wave;
-using ServiceLocator.Sound;
-using ServiceLocator.Player;
-using ServiceLocator.UI;
 
 namespace ServiceLocator.Main
 {
@@ -32,6 +34,10 @@ namespace ServiceLocator.Main
         [SerializeField] private AudioSource SFXSource;
         [SerializeField] private AudioSource BGSource;
 
+        protected override void Awake()
+        {
+            base.Awake();
+        }
         private void Start()
         {
             EventService = new EventService();
@@ -48,3 +54,4 @@ namespace ServiceLocator.Main
         }
     }
 }
+
