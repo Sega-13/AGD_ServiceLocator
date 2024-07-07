@@ -38,7 +38,13 @@ namespace ServiceLocator.Main
         {
             base.Awake();
         }
+        
         private void Start()
+        {
+            CreateService();
+            PlayerService.Init(MapService,UIService,SoundService);
+        }
+        private void CreateService()
         {
             EventService = new EventService();
             UIService.SubscribeToEvents();
