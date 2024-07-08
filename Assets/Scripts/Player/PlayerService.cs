@@ -28,11 +28,12 @@ namespace ServiceLocator.Player
             projectilePool = new ProjectilePool(playerScriptableObject.ProjectilePrefab, playerScriptableObject.ProjectileScriptableObjects);
             
         }
-        public void Init(MapService mapService, UIService uIService, SoundService soundService)
+        public void Init(UIService uIService, MapService mapService,SoundService soundService)
         {
-            this.mapService = mapService;
             this.uIService = uIService;
+            this.mapService = mapService;
             this.soundService = soundService;
+
             InitializeVariables();
         }
         private void InitializeVariables()
