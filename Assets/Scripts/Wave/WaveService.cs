@@ -28,7 +28,7 @@ namespace ServiceLocator.Wave
         public WaveService(WaveScriptableObject waveScriptableObject)
         {
             this.waveScriptableObject = waveScriptableObject;
-            InitializeBloons();
+            //InitializeBloons();
            // SubscribeToEvents();
         }
         public void Init(
@@ -44,6 +44,9 @@ namespace ServiceLocator.Wave
             this.mapService = mapService;
             this.soundService = soundService;
             this.playerService = playerService;
+
+            InitializeBloons();
+
             SubscribeToEvents();
         }
         private void InitializeBloons()
@@ -56,7 +59,7 @@ namespace ServiceLocator.Wave
                 );
             activeBloons = new List<BloonController>();
         }
-
+        
         private void SubscribeToEvents() => eventService.OnMapSelected.AddListener(LoadWaveDataForMap);
 
         private void LoadWaveDataForMap(int mapId)
