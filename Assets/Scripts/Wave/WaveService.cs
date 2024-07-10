@@ -25,7 +25,6 @@ namespace ServiceLocator.Wave
         private EventService eventService;
         private UIService uIService;
         private PlayerService playerService;
-        public static bool isLevelWon;
         public WaveService(WaveScriptableObject waveScriptableObject)
         {
             currentWaveId = 0;
@@ -122,7 +121,7 @@ namespace ServiceLocator.Wave
         {
             if(currentWaveId >= waveDatas.Count)
             {
-                isLevelWon = true;
+                MapManager.Instance.MarkMapCompleted();
                 return true;
             }
             return false;
