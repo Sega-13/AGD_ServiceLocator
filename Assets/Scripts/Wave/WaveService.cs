@@ -25,8 +25,10 @@ namespace ServiceLocator.Wave
         private EventService eventService;
         private UIService uIService;
         private PlayerService playerService;
+        public static bool isLevelWon;
         public WaveService(WaveScriptableObject waveScriptableObject)
         {
+            currentWaveId = 0;
             this.waveScriptableObject = waveScriptableObject;
             //InitializeBloons();
            // SubscribeToEvents();
@@ -116,6 +118,14 @@ namespace ServiceLocator.Wave
 
         private bool HasCurrentWaveEnded() => activeBloons.Count == 0;
 
-        private bool IsLevelWon() => currentWaveId >= waveDatas.Count;
+        private bool IsLevelWon()
+        {
+            if(currentWaveId >= waveDatas.Count)
+            {
+                isLevelWon = true;
+                return true;
+            }
+            return false;
+        }
     }
 }
