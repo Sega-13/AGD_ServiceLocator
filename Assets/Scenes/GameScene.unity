@@ -1044,7 +1044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapId: 2
-  mapButton: {fileID: 2112863271}
   mapName: Map_2
 --- !u!114 &2112863271
 MonoBehaviour:
@@ -1154,12 +1153,20 @@ PrefabInstance:
       objectReference: {fileID: 2112863270}
     - target: {fileID: 7182248005041137930, guid: 15430d56842a28843b57fd250730f142, type: 3}
       propertyPath: monkeyCellScriptableObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7182248005041137930, guid: 15430d56842a28843b57fd250730f142, type: 3}
       propertyPath: monkeyCellScriptableObjects.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 7e59d2e4e596c4049bce2fe6e66638bf, type: 2}
+    - target: {fileID: 7182248005041137930, guid: 15430d56842a28843b57fd250730f142, type: 3}
+      propertyPath: monkeyCellScriptableObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b638730361e415545bcf6173eccb6a0b, type: 2}
+    - target: {fileID: 7182248005041137930, guid: 15430d56842a28843b57fd250730f142, type: 3}
+      propertyPath: monkeyCellScriptableObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f3ee87107630f2c4abf75cdc1c8179f5, type: 2}
     - target: {fileID: 7182248005041137931, guid: 15430d56842a28843b57fd250730f142, type: 3}
       propertyPath: m_Name
       value: Canvas - UI Service
