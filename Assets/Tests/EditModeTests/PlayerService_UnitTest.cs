@@ -1,9 +1,10 @@
-/*using NUnit.Framework;
+using NUnit.Framework;
 using UnityEngine;
 using ServiceLocator.Main;
 using ServiceLocator.Player;
 using ServiceLocator.Player.Projectile;
 using System.Collections.Generic;
+using UnityEngine.Assertions;
 
 public class PlayerService_UnitTest
 {
@@ -36,7 +37,6 @@ public class PlayerService_UnitTest
         playerService.GetReward(100);
 
         // Assert
-        Assert.AreEqual(initialMoney + 100, playerService.Money);
+        NUnit.Framework.Assert.AreEqual(initialMoney + 100, playerService.Money);
     }
 }
-*/

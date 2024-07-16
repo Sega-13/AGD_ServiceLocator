@@ -1,9 +1,10 @@
-/*using NUnit.Framework;
+using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using ServiceLocator.Player;
 using ServiceLocator.Player.Projectile;
 using ServiceLocator.Wave.Bloon;
+using ServiceLocator.Sound;
 
 public class MonkeyController_UnitTest
 {
@@ -14,9 +15,15 @@ public class MonkeyController_UnitTest
     {
         MonkeyScriptableObject monkeySO = CreateDummyMonkeySO();
         ProjectilePool projectilePool = CreateDummyProjectilePool();
-        monkeyController = new MonkeyController(monkeySO, projectilePool);
+        SoundService soundService = CreateDummySoundService();
+        monkeyController = new MonkeyController(monkeySO, projectilePool,soundService);
     }
-
+    private SoundService CreateDummySoundService()
+    {
+        SoundScriptableObject soundSO = ScriptableObject.CreateInstance<SoundScriptableObject>();
+        soundSO.audioList = new Sounds[0];
+        return new SoundService(soundSO, new GameObject().AddComponent<AudioSource>(), new GameObject().AddComponent<AudioSource>());
+    }
     private MonkeyScriptableObject CreateDummyMonkeySO()
     {
         MonkeyScriptableObject monkeySO = ScriptableObject.CreateInstance<MonkeyScriptableObject>();
@@ -37,9 +44,16 @@ public class MonkeyController_UnitTest
         ProjectileView projectilePrefab = new GameObject().AddComponent<ProjectileView>();
         List<ProjectileScriptableObject> projectileSOs = new List<ProjectileScriptableObject>();
         projectileSOs.Add(ScriptableObject.CreateInstance<ProjectileScriptableObject>());
-        return new ProjectilePool(projectilePrefab, projectileSOs);
+        PlayerService playerService = CreaateDummyPlayerService(projectilePrefab, projectileSOs);
+        return new ProjectilePool(projectilePrefab, projectileSOs,playerService);
     }
-
+    private PlayerService CreaateDummyPlayerService(ProjectileView projectilePrefab, List<ProjectileScriptableObject> projectileSOs)
+    {
+        PlayerScriptableObject playerSO = ScriptableObject.CreateInstance<PlayerScriptableObject>();
+        playerSO.ProjectilePrefab = projectilePrefab;
+        playerSO.ProjectileScriptableObjects = projectileSOs;
+        return new PlayerService(playerSO);
+    }
     [Test]
     public void CanAttackBloon_CheckCondition()
     {
@@ -50,4 +64,4 @@ public class MonkeyController_UnitTest
         Assert.IsTrue(canAttack);
     }
 
-}*/
+}
